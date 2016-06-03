@@ -1,0 +1,99 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package vista;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.ejb.EJB;
+import javax.inject.Named;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import logica.SesionLogicaLocal;
+import logica.VigilanteLogicaLocal;
+import modelo.Persona;
+import modelo.Vigilante;
+import org.primefaces.component.commandbutton.CommandButton;
+import org.primefaces.component.inputtext.InputText;
+
+/**
+ *
+ * @author ADMIN
+ */
+@Named(value = "sesionVista")
+@RequestScoped
+public class SesionVista {
+    private InputText txtDocumento;
+    private InputText txtClave;
+    private CommandButton btnIngresar;
+    @EJB
+    private SesionLogicaLocal sesionLogica;
+    
+    @EJB
+    private VigilanteLogicaLocal vigilanteLogica;
+    
+    /**
+     * Creates a new instance of SesionVista
+     */
+    public SesionVista() {
+    }
+
+    public InputText getTxtDocumento() {
+        return txtDocumento;
+    }
+
+    public void setTxtDocumento(InputText txtDocumento) {
+        this.txtDocumento = txtDocumento;
+    }
+
+    public InputText getTxtClave() {
+        return txtClave;
+    }
+
+    public void setTxtClave(InputText txtClave) {
+        this.txtClave = txtClave;
+    }
+
+    public CommandButton getBtnIngresar() {
+        return btnIngresar;
+    }
+
+    public void setBtnIngresar(CommandButton btnIngresar) {
+        this.btnIngresar = btnIngresar;
+    }
+    
+    public void actionIngresar(){
+        try{
+            Long documento = Long.parseLong(txtDocumento.getValue().toString());
+            String clave = txtClave.getValue().toString();
+            Persona objPersona = sesionLogica.iniciarSesion(documento, clave);
+            char tipoUsuario = objPersona.getLetraTU().getLetraTU().charAt(0);
+            FacesContext context =FacesContext.getCurrentInstance();
+            ExternalContext extContext = context.getExternalContext();
+            String url = "";
+            switch(tipoUsuario){
+                case 'V':
+                    url = extContext.encodeActionURL(context.getApplication().
+                    getViewHandler().getActionURL(context, "vigilante/indexVigilante.xhtml"));
+                    Vigilante objVigilante = vigilanteLogica.consultarxDocumento(documento);
+                    if(objVigilante==null){
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
+                    }else{
+                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("tipo", "V");
+                        extContext.redirect(url);
+                    }  
+                    break;
+            }
+        }catch(NumberFormatException e){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El documento debe ser numérico"));
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", ex.getMessage()));
+        }
+    }
+    
+}
