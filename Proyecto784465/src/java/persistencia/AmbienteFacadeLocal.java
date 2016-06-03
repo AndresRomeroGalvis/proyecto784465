@@ -11,7 +11,7 @@ import modelo.Ambiente;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface AmbienteFacadeLocal {

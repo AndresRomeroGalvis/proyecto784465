@@ -12,7 +12,7 @@ import modelo.Programa;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class ProgramaFacade extends AbstractFacade<Programa> implements ProgramaFacadeLocal {

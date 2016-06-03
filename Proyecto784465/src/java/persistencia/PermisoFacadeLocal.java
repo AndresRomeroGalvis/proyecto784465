@@ -11,7 +11,7 @@ import modelo.Permiso;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface PermisoFacadeLocal {

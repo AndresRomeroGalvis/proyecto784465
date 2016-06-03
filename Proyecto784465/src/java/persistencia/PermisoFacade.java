@@ -12,7 +12,7 @@ import modelo.Permiso;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class PermisoFacade extends AbstractFacade<Permiso> implements PermisoFacadeLocal {

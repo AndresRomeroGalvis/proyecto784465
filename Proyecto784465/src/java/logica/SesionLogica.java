@@ -8,6 +8,7 @@ package logica;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import modelo.Persona;
+import org.apache.commons.codec.digest.DigestUtils;
 import persistencia.PersonaFacadeLocal;
 
 /**
@@ -31,9 +32,17 @@ public class SesionLogica implements SesionLogicaLocal {
         if(objPersona==null){
             throw new Exception("Usuario No existe");
         }
-        if(!objPersona.getContrasenaPersona().equals(clave)){
+        String claveEncriptada = encriptarContraseña(clave);
+        if(!objPersona.getContrasenaPersona().equals(claveEncriptada)){
             throw new Exception("Contraseña Incorrecta");
         }
         return objPersona;
     }
+    
+    public String encriptarContraseña(String password) {
+        String encriptMD5 = DigestUtils.md5Hex(password);
+        System.out.println("md5:" + encriptMD5);        
+        return encriptMD5;
+    }
+
 }

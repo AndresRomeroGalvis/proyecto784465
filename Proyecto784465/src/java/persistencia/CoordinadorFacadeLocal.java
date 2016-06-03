@@ -11,7 +11,7 @@ import modelo.Coordinador;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface CoordinadorFacadeLocal {

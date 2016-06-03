@@ -12,7 +12,7 @@ import modelo.Empleado;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class EmpleadoFacade extends AbstractFacade<Empleado> implements EmpleadoFacadeLocal {

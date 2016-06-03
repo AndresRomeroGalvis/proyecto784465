@@ -11,7 +11,7 @@ import modelo.Inasistencias;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface InasistenciasFacadeLocal {

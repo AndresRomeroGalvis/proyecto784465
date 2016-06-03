@@ -11,7 +11,7 @@ import modelo.Visitante;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface VisitanteFacadeLocal {

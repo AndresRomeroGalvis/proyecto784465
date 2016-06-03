@@ -12,7 +12,7 @@ import modelo.Coordinador;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class CoordinadorFacade extends AbstractFacade<Coordinador> implements CoordinadorFacadeLocal {

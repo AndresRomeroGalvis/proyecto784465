@@ -11,7 +11,7 @@ import modelo.Entregaambiente;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface EntregaambienteFacadeLocal {

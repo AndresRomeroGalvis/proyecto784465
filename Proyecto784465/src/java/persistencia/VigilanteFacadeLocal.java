@@ -11,7 +11,7 @@ import modelo.Vigilante;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface VigilanteFacadeLocal {

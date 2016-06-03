@@ -11,7 +11,7 @@ import modelo.Ingreso;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface IngresoFacadeLocal {

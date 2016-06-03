@@ -12,7 +12,7 @@ import modelo.Visitante;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class VisitanteFacade extends AbstractFacade<Visitante> implements VisitanteFacadeLocal {

@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Entity
 @Table(name = "vigilante")
@@ -44,7 +44,7 @@ public class Vigilante implements Serializable {
     private Persona persona;
     @OneToMany(mappedBy = "documentoV")
     private List<Observaciones> observacionesList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "documentoV1")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "documentoV")
     private List<Entregaambiente> entregaambienteList;
 
     public Vigilante() {

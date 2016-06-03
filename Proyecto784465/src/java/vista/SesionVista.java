@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -19,6 +20,7 @@ import modelo.Persona;
 import modelo.Vigilante;
 import org.primefaces.component.commandbutton.CommandButton;
 import org.primefaces.component.inputtext.InputText;
+import org.primefaces.component.password.Password;
 
 /**
  *
@@ -28,7 +30,7 @@ import org.primefaces.component.inputtext.InputText;
 @RequestScoped
 public class SesionVista {
     private InputText txtDocumento;
-    private InputText txtClave;
+    private Password txtClave;
     private CommandButton btnIngresar;
     @EJB
     private SesionLogicaLocal sesionLogica;
@@ -50,11 +52,11 @@ public class SesionVista {
         this.txtDocumento = txtDocumento;
     }
 
-    public InputText getTxtClave() {
+    public Password getTxtClave() {
         return txtClave;
     }
 
-    public void setTxtClave(InputText txtClave) {
+    public void setTxtClave(Password txtClave) {
         this.txtClave = txtClave;
     }
 
@@ -78,7 +80,7 @@ public class SesionVista {
             switch(tipoUsuario){
                 case 'V':
                     url = extContext.encodeActionURL(context.getApplication().
-                    getViewHandler().getActionURL(context, "vigilante/indexVigilante.xhtml"));
+                    getViewHandler().getActionURL(context, "/vigilante/indexVigilante.xhtml"));
                     Vigilante objVigilante = vigilanteLogica.consultarxDocumento(documento);
                     if(objVigilante==null){
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
@@ -88,11 +90,27 @@ public class SesionVista {
                         extContext.redirect(url);
                     }  
                     break;
+                 default:
+                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No tiene rol"));
             }
         }catch(NumberFormatException e){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El documento debe ser numérico"));
         } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", ex.getMessage()));
+        }
+    }
+    
+     public void cerrarSesion_action()
+    {
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            ExternalContext extContext= context.getExternalContext();
+            extContext.getSessionMap().remove("usuario");
+            extContext.getSessionMap().remove("tipo");
+            String url=extContext.encodeActionURL(context.getApplication().getViewHandler().getActionURL(context,"../index.xhtml"));
+            extContext.redirect(url);
+        } catch (IOException ex) {
+            Logger.getLogger(SesionVista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

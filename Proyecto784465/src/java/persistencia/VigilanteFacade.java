@@ -12,7 +12,7 @@ import modelo.Vigilante;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class VigilanteFacade extends AbstractFacade<Vigilante> implements VigilanteFacadeLocal {

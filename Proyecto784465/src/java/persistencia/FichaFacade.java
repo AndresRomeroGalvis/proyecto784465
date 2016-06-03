@@ -12,7 +12,7 @@ import modelo.Ficha;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class FichaFacade extends AbstractFacade<Ficha> implements FichaFacadeLocal {

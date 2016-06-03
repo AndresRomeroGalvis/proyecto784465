@@ -11,7 +11,7 @@ import modelo.Empleado;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface EmpleadoFacadeLocal {

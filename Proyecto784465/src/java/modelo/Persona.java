@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Entity
 @Table(name = "persona")
@@ -86,7 +86,7 @@ public class Persona implements Serializable {
     private List<Ingreso> ingresoList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona")
     private Visitante visitante;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "documentoV")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "documentoPersona")
     private List<Entregaambiente> entregaambienteList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona")
     private Aprendiz aprendiz;

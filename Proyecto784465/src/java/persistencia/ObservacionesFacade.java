@@ -12,7 +12,7 @@ import modelo.Observaciones;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class ObservacionesFacade extends AbstractFacade<Observaciones> implements ObservacionesFacadeLocal {

@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Entity
 @Table(name = "entregaambiente")
@@ -32,8 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Entregaambiente.findAll", query = "SELECT e FROM Entregaambiente e"),
     @NamedQuery(name = "Entregaambiente.findByCod", query = "SELECT e FROM Entregaambiente e WHERE e.cod = :cod"),
     @NamedQuery(name = "Entregaambiente.findByFechaEntrega", query = "SELECT e FROM Entregaambiente e WHERE e.fechaEntrega = :fechaEntrega"),
-    @NamedQuery(name = "Entregaambiente.findByHoraEntrega", query = "SELECT e FROM Entregaambiente e WHERE e.horaEntrega = :horaEntrega"),
-    @NamedQuery(name = "Entregaambiente.findByDocumentoPersona", query = "SELECT e FROM Entregaambiente e WHERE e.documentoPersona = :documentoPersona")})
+    @NamedQuery(name = "Entregaambiente.findByHoraEntrega", query = "SELECT e FROM Entregaambiente e WHERE e.horaEntrega = :horaEntrega")})
 public class Entregaambiente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -51,19 +50,15 @@ public class Entregaambiente implements Serializable {
     @Column(name = "horaEntrega")
     @Temporal(TemporalType.TIME)
     private Date horaEntrega;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "documentoPersona")
-    private long documentoPersona;
-    @JoinColumn(name = "documentoV", referencedColumnName = "documentoPersona")
-    @ManyToOne(optional = false)
-    private Persona documentoV;
     @JoinColumn(name = "idAmbiente", referencedColumnName = "idAmbiente")
     @ManyToOne(optional = false)
     private Ambiente idAmbiente;
     @JoinColumn(name = "documentoV", referencedColumnName = "documentoV")
     @ManyToOne(optional = false)
-    private Vigilante documentoV1;
+    private Vigilante documentoV;
+    @JoinColumn(name = "documentoPersona", referencedColumnName = "documentoPersona")
+    @ManyToOne(optional = false)
+    private Persona documentoPersona;
 
     public Entregaambiente() {
     }
@@ -72,11 +67,10 @@ public class Entregaambiente implements Serializable {
         this.cod = cod;
     }
 
-    public Entregaambiente(Integer cod, Date fechaEntrega, Date horaEntrega, long documentoPersona) {
+    public Entregaambiente(Integer cod, Date fechaEntrega, Date horaEntrega) {
         this.cod = cod;
         this.fechaEntrega = fechaEntrega;
         this.horaEntrega = horaEntrega;
-        this.documentoPersona = documentoPersona;
     }
 
     public Integer getCod() {
@@ -103,22 +97,6 @@ public class Entregaambiente implements Serializable {
         this.horaEntrega = horaEntrega;
     }
 
-    public long getDocumentoPersona() {
-        return documentoPersona;
-    }
-
-    public void setDocumentoPersona(long documentoPersona) {
-        this.documentoPersona = documentoPersona;
-    }
-
-    public Persona getDocumentoV() {
-        return documentoV;
-    }
-
-    public void setDocumentoV(Persona documentoV) {
-        this.documentoV = documentoV;
-    }
-
     public Ambiente getIdAmbiente() {
         return idAmbiente;
     }
@@ -127,12 +105,20 @@ public class Entregaambiente implements Serializable {
         this.idAmbiente = idAmbiente;
     }
 
-    public Vigilante getDocumentoV1() {
-        return documentoV1;
+    public Vigilante getDocumentoV() {
+        return documentoV;
     }
 
-    public void setDocumentoV1(Vigilante documentoV1) {
-        this.documentoV1 = documentoV1;
+    public void setDocumentoV(Vigilante documentoV) {
+        this.documentoV = documentoV;
+    }
+
+    public Persona getDocumentoPersona() {
+        return documentoPersona;
+    }
+
+    public void setDocumentoPersona(Persona documentoPersona) {
+        this.documentoPersona = documentoPersona;
     }
 
     @Override

@@ -11,7 +11,7 @@ import modelo.Aprendiz;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface AprendizFacadeLocal {

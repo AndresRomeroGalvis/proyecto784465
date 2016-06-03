@@ -11,7 +11,7 @@ import modelo.Instructor;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface InstructorFacadeLocal {

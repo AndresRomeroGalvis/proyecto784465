@@ -11,7 +11,7 @@ import modelo.Observaciones;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface ObservacionesFacadeLocal {

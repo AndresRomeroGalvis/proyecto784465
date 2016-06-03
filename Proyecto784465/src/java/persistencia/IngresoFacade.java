@@ -12,7 +12,7 @@ import modelo.Ingreso;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class IngresoFacade extends AbstractFacade<Ingreso> implements IngresoFacadeLocal {

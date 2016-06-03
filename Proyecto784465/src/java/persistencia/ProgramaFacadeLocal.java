@@ -11,7 +11,7 @@ import modelo.Programa;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface ProgramaFacadeLocal {

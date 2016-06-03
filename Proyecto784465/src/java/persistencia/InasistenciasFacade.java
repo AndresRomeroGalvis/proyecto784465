@@ -12,7 +12,7 @@ import modelo.Inasistencias;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class InasistenciasFacade extends AbstractFacade<Inasistencias> implements InasistenciasFacadeLocal {

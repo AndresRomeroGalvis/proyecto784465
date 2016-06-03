@@ -11,7 +11,7 @@ import modelo.Tipousuario;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface TipousuarioFacadeLocal {

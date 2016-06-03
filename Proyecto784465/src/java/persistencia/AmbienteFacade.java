@@ -12,7 +12,7 @@ import modelo.Ambiente;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class AmbienteFacade extends AbstractFacade<Ambiente> implements AmbienteFacadeLocal {

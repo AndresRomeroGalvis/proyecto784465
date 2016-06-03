@@ -11,7 +11,7 @@ import modelo.Persona;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface PersonaFacadeLocal {

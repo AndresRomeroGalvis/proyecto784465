@@ -12,7 +12,7 @@ import modelo.Aprendiz;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class AprendizFacade extends AbstractFacade<Aprendiz> implements AprendizFacadeLocal {

@@ -11,7 +11,7 @@ import modelo.Ficha;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Local
 public interface FichaFacadeLocal {

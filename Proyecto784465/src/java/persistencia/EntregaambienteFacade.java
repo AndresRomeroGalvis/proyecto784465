@@ -12,7 +12,7 @@ import modelo.Entregaambiente;
 
 /**
  *
- * @author USUARIO
+ * @author ADMIN
  */
 @Stateless
 public class EntregaambienteFacade extends AbstractFacade<Entregaambiente> implements EntregaambienteFacadeLocal {
