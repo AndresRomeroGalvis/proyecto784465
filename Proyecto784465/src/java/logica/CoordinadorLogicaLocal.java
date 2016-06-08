@@ -6,13 +6,13 @@
 package logica;
 
 import javax.ejb.Local;
-import modelo.Aprendiz;
+import modelo.Coordinador;
 
 /**
  *
  * @author USER
  */
 @Local
-public interface AprendizLogicaLocal {
-    public Aprendiz consultarxDocumento(Long documento) throws Exception;
+public interface CoordinadorLogicaLocal {
+     public Coordinador consultarxDocumento(Long documento) throws Exception;
 }

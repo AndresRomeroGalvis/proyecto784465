@@ -7,23 +7,24 @@ package logica;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import modelo.Aprendiz;
-import persistencia.AprendizFacadeLocal;
+import modelo.Instructor;
+import persistencia.InstructorFacadeLocal;
 
 /**
  *
  * @author USER
  */
 @Stateless
-public class AprendizLogica implements AprendizLogicaLocal {
+public class InstructorLogica implements InstructorLogicaLocal {
 @EJB
-     private AprendizFacadeLocal aprendizDAO;
+    private InstructorFacadeLocal instructorDAO;
     
-      public Aprendiz consultarxDocumento(Long documentoC) throws Exception {
-        if(documentoC==null){
-            throw new Exception("El documento es Obligatorio");
+
+    public Instructor consultarxDocumento(Long documentoI) throws Exception {
+        if(documentoI==null){
+            throw new Exception("Documento Obligatorio");
         }
-        return aprendizDAO.find(documentoC);
+        return instructorDAO.find(documentoI);
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

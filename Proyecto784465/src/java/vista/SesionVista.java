@@ -14,8 +14,16 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import logica.AprendizLogicaLocal;
+import logica.CoordinadorLogicaLocal;
+import logica.InstructorLogica;
+import logica.InstructorLogicaLocal;
 import logica.SesionLogicaLocal;
 import logica.VigilanteLogicaLocal;
+import modelo.Aprendiz;
+import modelo.Coordinador;
+import modelo.Instructor;
+
 import modelo.Persona;
 import modelo.Vigilante;
 import org.primefaces.component.commandbutton.CommandButton;
@@ -35,12 +43,17 @@ public class SesionVista {
     @EJB
     private SesionLogicaLocal sesionLogica;
     
+     @EJB
+    private AprendizLogicaLocal aprendizLogica;
+    
     @EJB
     private VigilanteLogicaLocal vigilanteLogica;
     
-    /**
-     * Creates a new instance of SesionVista
-     */
+     @EJB
+     private InstructorLogicaLocal instructorLogica;
+    @EJB 
+    private CoordinadorLogicaLocal coordinadorLogica;
+     
     public SesionVista() {
     }
 
@@ -83,10 +96,46 @@ public class SesionVista {
                     getViewHandler().getActionURL(context, "/vigilante/indexVigilante.xhtml"));
                     Vigilante objVigilante = vigilanteLogica.consultarxDocumento(documento);
                     if(objVigilante==null){
-                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol" ));
                     }else{
                         extContext.getSessionMap().put("usuario", objPersona);
                         extContext.getSessionMap().put("tipo", "V");
+                        extContext.redirect(url);
+                    }  
+                    break;
+                case 'C':
+                    url = extContext.encodeActionURL(context.getApplication().
+                    getViewHandler().getActionURL(context, "/coordinador/indexCoordinador.xhtml"));
+                    Coordinador objCoordinador = coordinadorLogica.consultarxDocumento(documento);
+                    if(objCoordinador==null){
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
+                    }else{
+                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("tipo", "C");
+                        extContext.redirect(url);
+                    }  
+                    break;
+                case 'I':
+                    url = extContext.encodeActionURL(context.getApplication().
+                    getViewHandler().getActionURL(context, "/instructor/indexInstructor.xhtml"));
+                    Instructor objInstructor = instructorLogica.consultarxDocumento(documento);
+                    if(objInstructor==null){
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
+                    }else{
+                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("tipo", "I");
+                        extContext.redirect(url);
+                    }  
+                    break;
+                case 'A':
+                    url = extContext.encodeActionURL(context.getApplication().
+                    getViewHandler().getActionURL(context, "/instructor/indexInstructor.xhtml"));
+                    Aprendiz objAprendiz = aprendizLogica.consultarxDocumento(documento);
+                    if(objAprendiz==null){
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
+                    }else{
+                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("tipo", "A");
                         extContext.redirect(url);
                     }  
                     break;
