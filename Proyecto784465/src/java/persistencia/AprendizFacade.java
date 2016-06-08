@@ -5,9 +5,11 @@
  */
 package persistencia;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import modelo.Aprendiz;
 
 /**
@@ -26,6 +28,11 @@ public class AprendizFacade extends AbstractFacade<Aprendiz> implements Aprendiz
 
     public AprendizFacade() {
         super(Aprendiz.class);
+    }
+    public List<Aprendiz> consultarDocumento(String documentoPersona) {
+        String consulta="select aprendiz from aprendiz.documentoA ='"+ documentoPersona +"'";
+        Query query=em.createQuery(consulta);
+        return query.getResultList();//retornar una lista cuando retorne un objeto debe ser getsingleResul
     }
     
 }

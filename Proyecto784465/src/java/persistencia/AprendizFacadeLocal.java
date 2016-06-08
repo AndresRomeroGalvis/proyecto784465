@@ -29,5 +29,5 @@ public interface AprendizFacadeLocal {
     List<Aprendiz> findRange(int[] range);
 
     int count();
-    
+     List<Aprendiz> consultarDocumento(String nombre);//enviar nombre de departamento
 }
