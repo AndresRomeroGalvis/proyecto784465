@@ -156,7 +156,7 @@ public class AprendizVista {
             nuevapersona.setApellidosPersona(txtApellidos.getValue().toString());
             nuevapersona.setDireccionPersona(txtDireccion.getValue().toString());
             nuevapersona.setEmailPersona(txtEmail.getValue().toString());
-            aprendizlogica.registrar(nuevapersona);
+            personalogica.registrar(nuevapersona);
         } catch (Exception ex) {
                   FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", ex.getMessage()));
             Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);

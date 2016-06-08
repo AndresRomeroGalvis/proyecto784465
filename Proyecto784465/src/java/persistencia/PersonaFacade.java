@@ -5,9 +5,11 @@
  */
 package persistencia;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import modelo.Persona;
 
 /**
@@ -27,5 +29,13 @@ public class PersonaFacade extends AbstractFacade<Persona> implements PersonaFac
     public PersonaFacade() {
         super(Persona.class);
     }
+
+    @Override
+    public void registrar(Persona persona) throws Exception {
+       
+    }
+
+    
+    
     
 }

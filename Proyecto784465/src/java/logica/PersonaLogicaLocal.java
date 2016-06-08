@@ -15,4 +15,6 @@ import modelo.Persona;
 @Local
 public interface PersonaLogicaLocal {
     public Persona consultarxDocumento(Long documento) throws Exception;
+    public void registrar(Persona persona) throws Exception;
+    public void modificar(Persona persona) throws Exception;
 }

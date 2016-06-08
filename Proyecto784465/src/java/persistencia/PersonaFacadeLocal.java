@@ -29,5 +29,5 @@ public interface PersonaFacadeLocal {
     List<Persona> findRange(int[] range);
 
     int count();
-    
+     public void registrar(Persona persona) throws Exception;
 }

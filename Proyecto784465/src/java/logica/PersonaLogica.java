@@ -26,4 +26,37 @@ public class PersonaLogica implements PersonaLogicaLocal {
         }
         return personaDAO.find(documento);
     }
+
+    @Override
+    public void registrar(Persona persona) throws Exception {
+       
+        if(persona== null){
+           throw new Exception(" Campo vacios ");
+       }
+       if(persona.getNombresPersona()== null || persona.getNombresPersona().equals("")){
+     throw new Exception(" El nombre es obligatorio ");   
+    }
+      Persona objEmpleado = personaDAO.find(persona.getDocumentoPersona());
+    if(objEmpleado !=null){
+      throw new Exception(" la persona ya existe");  
+    }else{
+       personaDAO.create(persona);
+    }
+    }
+
+    @Override
+    public void modificar(Persona persona) throws Exception {
+           if(persona== null){
+           throw new Exception(" Campo vacios ");
+       }
+       if(persona.getNombresPersona()== null || persona.getNombresPersona().equals("")){
+     throw new Exception(" El nombre es obligatorio ");   
+    }
+      Persona objEmpleado = personaDAO.find(persona.getDocumentoPersona());
+    if(objEmpleado ==null){
+      throw new Exception(" la persona ya existe");  
+    }else{
+       personaDAO.edit(persona);
+    }
+    }
 }
