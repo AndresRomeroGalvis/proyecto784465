@@ -28,23 +28,12 @@
                     Footer
                 </p:layoutUnit>
 
-                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
-                    <p:menu>
-                        <p:submenu label="Resources">
-                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
-                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
-                        </p:submenu>
-
-                    </p:menu>
-                </p:layoutUnit>
+                
 
                 <p:layoutUnit position="center">
                     <h:form id="formularios">
                          <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                         <p:panelGrid columns="4">
+                    <p:panelGrid columns="2"/>
                             <f:facet name="Crear Aprendicez" ></f:facet>
                             
                              <h:outputText value="Nombre "/>
@@ -58,33 +47,9 @@
                               
                                <h:outputText value="Email"/>
                                <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
-                               
-                    </h:form>
-                     <p:panelGrid columns="4">
-                            <f:facet name="Controles"></f:facet>
-                            <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
-                                             value="Registrar"
-                                             action="#{aprendizVista.action_registrar()}"
-                                             update=":formularios"
-
-                                             />
-
-                            <p:commandButton id="btnModificar" disabled="true" binding="#{aprendizVista.btnModificar}" 
-                                             value="Modificar"
-                                             action="#{aprendizVista.action_modificar()}"
-                                             update=":formularios"
-
-                                             />
-
-                                             />
-                            <p:commandButton id="btnLimpiar" binding="#{empleadoVista.btnlimpiar}" 
-                                             value="Limpiar"
-                                             action="#{empleadoVista.action_limpiar()}"
-                                             update=":formularios"
-
-                                             />
-
-                        </p:panelGrid >
+                      
+                    </h:form> 
+                     
                 </p:layoutUnit>
 
             </p:layout>
