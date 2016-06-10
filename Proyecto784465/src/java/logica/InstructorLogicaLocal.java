@@ -15,4 +15,5 @@ import modelo.Instructor;
 @Local
 public interface InstructorLogicaLocal {
      public Instructor consultarxDocumento(Long documento) throws Exception;
+     
 }
