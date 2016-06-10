@@ -1,5 +1,5 @@
-.Header{
-    background-color: red;
+#Header{
+    background: red;
     width: 100%;
     height:25px;
 }
