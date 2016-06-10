@@ -27,4 +27,17 @@ public class AprendizLogica implements AprendizLogicaLocal {
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public void modificar(Aprendiz aprendiz) throws Exception {
+        Aprendiz objAprendiz = aprendizDAO.find(aprendiz.getDocumentoA());
+        if(objAprendiz==null){
+            throw new Exception("Usuario no existe");
+        }else if(objAprendiz.equals("seleccione")){
+            throw new Exception("Seleccione una ficha existente");
+        }
+        objAprendiz.setPersona(aprendiz.getPersona());
+        objAprendiz.setNumFicha(aprendiz.getNumFicha());
+        aprendizDAO.edit(objAprendiz);
+    }
 }

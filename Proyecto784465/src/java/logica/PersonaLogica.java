@@ -40,7 +40,7 @@ public class PersonaLogica implements PersonaLogicaLocal {
     if(objEmpleado !=null){
       throw new Exception(" la persona ya existe");  
     }else{
-       personaDAO.create(persona);
+       personaDAO.edit(persona);
     }
     }
 
@@ -53,10 +53,15 @@ public class PersonaLogica implements PersonaLogicaLocal {
      throw new Exception(" El nombre es obligatorio ");   
     }
       Persona objEmpleado = personaDAO.find(persona.getDocumentoPersona());
+      
     if(objEmpleado ==null){
       throw new Exception(" la persona ya existe");  
     }else{
-       personaDAO.edit(persona);
+       objEmpleado.setNombresPersona(persona.getNombresPersona());
+       objEmpleado.setApellidosPersona(persona.getApellidosPersona());
+       objEmpleado.setDireccionPersona(persona.getDireccionPersona());
+       objEmpleado.setEmailPersona(persona.getEmailPersona());
+       personaDAO.edit(objEmpleado);
     }
     }
 }

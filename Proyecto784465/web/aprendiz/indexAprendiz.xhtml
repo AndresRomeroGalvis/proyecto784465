@@ -12,67 +12,64 @@
                 <link rel="stylesheet" type="text/css"  href="Styles/Main.css"/>  
                 <title>PrimeFaces</title>
             </f:facet>
-            <link rel="stylesheet" href="../Styles/Main.css"/>
+
         </h:head>
         <h:body>
 
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" style="background-color: red;" resizable="true" closable="true" collapsible="true">
-                    <div style="background-color: red; " >
-                        Sebastian Rivas
-                    </div>
-                    
-                    
+                <p:layoutUnit position="north" size="100"  resizable="true" closable="true" collapsible="true">
+
+
+
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
                     Footer
                 </p:layoutUnit>
 
-                
+
 
                 <p:layoutUnit position="center">
                     <h:form id="formularios">
-                         <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                    <p:panelGrid columns="2">
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                        <p:panelGrid columns="2">
                             <f:facet name="Crear Aprendicez" ></f:facet>
-                            
-                             <h:outputText value="Nombre "/>
-                             <p:inputText id="txtNombre" binding="#{aprendizVista.txtNombre}"/> 
-                             
-                              <h:outputText value="Apellidos"/>
-                              <p:inputText id="txtApellidos" binding="#{aprendizVista.txtApellidos}"/> 
-                              
-                              <h:outputText value="Direccion"/>
-                              <p:inputText id="txtDireccion" binding="#{aprendizVista.txtDireccion}"/> 
-                              
-                               <h:outputText value="Email"/>
-                               <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
-                      
-                    </h:form> 
-                    </p:panelgrid>
-                     <p:panelGrid columns="4">
-                            <f:facet name="Controles"></f:facet>
-                            <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
-                                             value="Registrar"
-                                             action="#{aprendizVista.action_registrar()}"
-                                             update=":formularios"
 
-                                             />
+                            <h:outputText value="Cedula "/>
+                            <p:inputText id="txtCedula" binding="#{aprendizVista.txtDocumento}"/> 
 
-                            <p:commandButton id="btnModificar" disabled="true" binding="#{aprendizVista.btnModificar}" 
-                                             value="Modificar"
-                                             action="#{aprendizVista.action_modificar()}"
-                                             update=":formularios"
+                            <h:outputText value="Nombre "/>
+                            <p:inputText id="txtNombre" binding="#{aprendizVista.txtNombre}"/> 
 
-                                             />
+                            <h:outputText value="Apellidos"/>
+                            <p:inputText id="txtApellidos" binding="#{aprendizVista.txtApellidos}"/> 
 
-                            
+                            <h:outputText value="Direccion"/>
+                            <p:inputText id="txtDireccion" binding="#{aprendizVista.txtDireccion}"/> 
 
-                            
+                            <h:outputText value="Email"/>
+                            <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
 
+                            <h:outputText value="Fichas "/>
+                            <p:selectOneMenu id="cmbFichas" binding="#{aprendizVista.cmbFichas}">
+                                <f:selectItem itemLabel="Seleccione" itemValue="Seleccione"/>              
+                                <f:selectItems value="#{aprendizVista.itemsFichas}"/>   //items de manera dinamica           
+                            </p:selectOneMenu>
                         </p:panelGrid >
+
+                    </h:form> 
+
+                    <p:panelGrid columns="4">
+                        <f:facet name="Controles"></f:facet>
+                        <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
+                                         value="Registrar"
+                                         action="#{aprendizVista.action_registrar()}"
+                                         update=":formularios"
+
+                                         />
+
+                    </p:panelGrid >
                 </p:layoutUnit>
 
             </p:layout>

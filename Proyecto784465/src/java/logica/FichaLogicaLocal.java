@@ -5,15 +5,15 @@
  */
 package logica;
 
+import java.util.List;
 import javax.ejb.Local;
-import modelo.Aprendiz;
+import modelo.Ficha;
 
 /**
  *
- * @author USER
+ * @author USUARIO
  */
 @Local
-public interface AprendizLogicaLocal {
-    public Aprendiz consultarxDocumento(Long documento) throws Exception;
-    public void modificar(Aprendiz aprendiz) throws Exception;
+public interface FichaLogicaLocal {
+     public List<Ficha> consultar() throws Exception;
 }
