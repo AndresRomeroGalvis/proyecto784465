@@ -10,7 +10,7 @@
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <link rel="stylesheet" type="text/css"  href="Styles/Main.css"/>  
-                <title>PrimeFaces</title>
+                <title> Sistema control de asistencias </title>
             </f:facet>
 
         </h:head>
@@ -19,7 +19,15 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100"  resizable="true" closable="true" collapsible="true">
+                    <h:form> <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Aprendiz Actualizar" url="faces/indexAprendizActualizarDatos.xhtml" />
+                                <p:menuitem value="Aprendiz Cambiar Contraseña" url="/indexAprendizModificarContraseña.xhtml" />
 
+                            </p:submenu>
+
+                        </p:menu>
+                    </h:form>
 
 
                 </p:layoutUnit>
@@ -32,8 +40,8 @@
 
                 <p:layoutUnit position="center">
                     <h:form id="formularios">
-                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                        <p:panelGrid columns="2">
+
+                        <p:panelGrid columns="4" id="tablero">
                             <f:facet name="Crear Aprendicez" ></f:facet>
 
                             <h:outputText value="Cedula "/>
@@ -60,7 +68,7 @@
 
                     </h:form> 
 
-                    <p:panelGrid columns="4">
+                    <p:panelGrid columns="2">
                         <f:facet name="Controles"></f:facet>
                         <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
                                          value="Registrar"

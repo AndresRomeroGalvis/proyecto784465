@@ -33,7 +33,7 @@ import org.primefaces.component.selectonemenu.SelectOneMenu;
  */
 @Named(value = "aprendizVista")
 @RequestScoped
-public class AprendizVista {
+public class AprendizVistaActualizar {
     private InputText txtDocumento;
     private InputText txtNombre;
     private InputText txtApellidos;
@@ -42,7 +42,6 @@ public class AprendizVista {
     private InputText txtLetra;
     private InputText txtContraseña;
     private CommandButton btnregistrar;
-    private CommandButton btnEliminar;
     private CommandButton btnModificar;
     private CommandButton btnlimpiar;
     private SelectOneMenu cmbFichas;
@@ -54,6 +53,8 @@ public class AprendizVista {
     
     @EJB
     private FichaLogicaLocal fichaLogica;
+     @EJB
+    private AprendizLogicaLocal aprendizlogica;
 
     public ArrayList<SelectItem> getItemsFichas() {
         try {
@@ -63,7 +64,7 @@ public class AprendizVista {
                 itemsFichas.add(new SelectItem(ListaFichas.get(i).getNumFicha(), ListaFichas.get(i).getNumFicha().toString()));
             }
         } catch (Exception ex) {
-            Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AprendizVistaActualizar.class.getName()).log(Level.SEVERE, null, ex);
         }
         return itemsFichas;
     }
@@ -81,8 +82,7 @@ public class AprendizVista {
     public void setCmbFichas(SelectOneMenu cmbFichas) {
         this.cmbFichas = cmbFichas;
     }
-    @EJB
-    private AprendizLogicaLocal aprendizlogica;
+   
     
 
     public InputText getTxtDocumento() {
@@ -149,22 +149,8 @@ public class AprendizVista {
         this.btnregistrar = btnregistrar;
     }
 
-    public CommandButton getBtnEliminar() {
-        return btnEliminar;
-    }
-
-    public void setBtnEliminar(CommandButton btnEliminar) {
-        this.btnEliminar = btnEliminar;
-    }
-
-    public CommandButton getBtnModificar() {
-        return btnModificar;
-    }
-
-    public void setBtnModificar(CommandButton btnModificar) {
-        this.btnModificar = btnModificar;
-    }
-
+ 
+  
     public CommandButton getBtnlimpiar() {
         return btnlimpiar;
     }
@@ -203,25 +189,17 @@ public class AprendizVista {
             System.out.println("Modifica");
         } catch (Exception ex) {
                   FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", ex.getMessage()));
-            Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AprendizVistaActualizar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     
-    public void action_modificar(){
-        try {
-            Persona nuevapersona = new Persona();
-            nuevapersona.setContrasenaPersona(txtContraseña.getValue().toString());
-            personalogica.modificar(nuevapersona);
-        } catch (Exception ex) {
-            Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
     /**
      * Creates a new instance of AprendizVista
      */
-    public AprendizVista() {
+    public AprendizVistaActualizar() {
 
     }
 

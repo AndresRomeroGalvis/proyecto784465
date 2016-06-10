@@ -16,4 +16,5 @@ import modelo.Aprendiz;
 public interface AprendizLogicaLocal {
     public Aprendiz consultarxDocumento(Long documento) throws Exception;
     public void modificar(Aprendiz aprendiz) throws Exception;
+    public void modificarContraseña(String claveVieja, String claveNueva)throws Exception;
 }
