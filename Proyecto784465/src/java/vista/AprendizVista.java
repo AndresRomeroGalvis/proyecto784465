@@ -164,6 +164,16 @@ public class AprendizVista {
 
     }
 
+    
+    public void action_modificar(){
+        try {
+            Persona nuevapersona = new Persona();
+            nuevapersona.setContrasenaPersona(txtContraseña.getValue().toString());
+            personalogica.modificar(nuevapersona);
+        } catch (Exception ex) {
+            Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * Creates a new instance of AprendizVista
      */
