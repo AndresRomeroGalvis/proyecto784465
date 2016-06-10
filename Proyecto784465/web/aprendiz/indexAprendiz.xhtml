@@ -12,16 +12,14 @@
                 <link rel="stylesheet" type="text/css"  href="Styles/Main.css"/>  
                 <title>PrimeFaces</title>
             </f:facet>
+            <link rel="stylesheet" href="../Styles/Main.css"/>
         </h:head>
-        <h:outputStylesheet library="Styles" name="Main.css">
-            
-        </h:outputStylesheet >
         <h:body>
 
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    <div class="Header">
+                <p:layoutUnit position="north" size="100" style="background-color: red;" resizable="true" closable="true" collapsible="true">
+                    <div style="background-color: red; " >
                         Sebastian Rivas
                     </div>
                     
@@ -37,7 +35,7 @@
                 <p:layoutUnit position="center">
                     <h:form id="formularios">
                          <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                    <p:panelGrid columns="2"/>
+                    <p:panelGrid columns="2">
                             <f:facet name="Crear Aprendicez" ></f:facet>
                             
                              <h:outputText value="Nombre "/>
@@ -53,7 +51,28 @@
                                <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
                       
                     </h:form> 
-                     
+                    </p:panelgrid>
+                     <p:panelGrid columns="4">
+                            <f:facet name="Controles"></f:facet>
+                            <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
+                                             value="Registrar"
+                                             action="#{aprendizVista.action_registrar()}"
+                                             update=":formularios"
+
+                                             />
+
+                            <p:commandButton id="btnModificar" disabled="true" binding="#{aprendizVista.btnModificar}" 
+                                             value="Modificar"
+                                             action="#{aprendizVista.action_modificar()}"
+                                             update=":formularios"
+
+                                             />
+
+                            
+
+                            
+
+                        </p:panelGrid >
                 </p:layoutUnit>
 
             </p:layout>
