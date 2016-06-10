@@ -26,4 +26,9 @@ public class FichaLogica implements FichaLogicaLocal {
         return fichaDAO.findAll();
     }
 
+    @Override
+    public Ficha consultarxCodigo(Integer ficha) throws Exception {
+        return fichaDAO.find(ficha);
+    }
+
 }

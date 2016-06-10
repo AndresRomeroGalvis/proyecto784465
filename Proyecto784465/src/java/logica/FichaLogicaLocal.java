@@ -16,4 +16,5 @@ import modelo.Ficha;
 @Local
 public interface FichaLogicaLocal {
      public List<Ficha> consultar() throws Exception;
+     public Ficha consultarxCodigo(Integer ficha) throws Exception;
 }

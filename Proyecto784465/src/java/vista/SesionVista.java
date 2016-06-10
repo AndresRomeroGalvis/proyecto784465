@@ -98,7 +98,7 @@ public class SesionVista {
                     if(objVigilante==null){
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol" ));
                     }else{
-                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("usuario", objVigilante);
                         extContext.getSessionMap().put("tipo", "V");
                         extContext.redirect(url);
                     }  
@@ -110,7 +110,7 @@ public class SesionVista {
                     if(objCoordinador==null){
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
                     }else{
-                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("usuario", objCoordinador);
                         extContext.getSessionMap().put("tipo", "C");
                         extContext.redirect(url);
                     }  
@@ -122,7 +122,7 @@ public class SesionVista {
                     if(objInstructor==null){
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
                     }else{
-                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("usuario", objInstructor);
                         extContext.getSessionMap().put("tipo", "I");
                         extContext.redirect(url);
                     }  
@@ -134,7 +134,7 @@ public class SesionVista {
                     if(objAprendiz==null){
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
                     }else{
-                        extContext.getSessionMap().put("usuario", objPersona);
+                        extContext.getSessionMap().put("usuario", objAprendiz);
                         extContext.getSessionMap().put("tipo", "A");
                         extContext.redirect(url);
                     }  

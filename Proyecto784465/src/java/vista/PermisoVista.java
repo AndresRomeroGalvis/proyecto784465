@@ -17,6 +17,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import logica.AprendizLogicaLocal;
+import logica.FichaLogicaLocal;
 import logica.PermisoLogicaLocal;
 import modelo.Aprendiz;
 import modelo.Empleado;
@@ -24,7 +25,11 @@ import modelo.Ficha;
 import modelo.Instructor;
 import modelo.Permiso;
 import org.primefaces.component.calendar.Calendar;
+import org.primefaces.component.commandbutton.CommandButton;
 import org.primefaces.component.inputtext.InputText;
+import org.primefaces.component.selectonebutton.SelectOneButton;
+import org.primefaces.component.selectonemenu.SelectOneMenu;
+import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -40,11 +45,25 @@ public class PermisoVista {
     private Calendar txtHoraFin;
     private InputText txtMotivoPermiso;
     private InputText txtTotalHoras;
-    List<Aprendiz> ListaAprendices;
+    private SelectOneMenu cmbFicha;
+    private List<Aprendiz> listaAprendices;
     private ArrayList<SelectItem> itemsFichas;
     @EJB
     private PermisoLogicaLocal permisoLogica;
     
+    @EJB
+    private FichaLogicaLocal fichaLogica;
+    
+     private CommandButton btnmostrar;
+
+    public CommandButton getBtnmostrar() {
+        
+        return btnmostrar;
+    }
+
+    public void setBtnmostrar(CommandButton btnmostrar) {
+        this.btnmostrar = btnmostrar;
+    }
     
     public InputText getTxtNpermiso() {
         return txtNpermiso;
@@ -70,6 +89,11 @@ public class PermisoVista {
         this.txtHoraInicio = txtHoraInicio;
     }
 
+    public List<Aprendiz> getListaAprendices() {
+        return listaAprendices;
+    }
+
+    
     public Calendar getTxtHoraFin() {
         return txtHoraFin;
     }
@@ -97,8 +121,10 @@ public class PermisoVista {
     
 
     public void setListaAprendices(List<Aprendiz> ListaAprendices) {
-        this.ListaAprendices = ListaAprendices;
+        
+        this.listaAprendices = ListaAprendices;
     }
+    
     public void action_registrar() {
         try {
             //metodo registrar
@@ -130,9 +156,29 @@ public class PermisoVista {
         }
         return itemsFichas;
     }
+    
+    public  void selectFicha (){
+        try {
+            Integer numFicha = Integer.parseInt(cmbFicha.getValue().toString());
+            Ficha fichaSeleccionada = fichaLogica.consultarxCodigo(numFicha);
+            listaAprendices = fichaSeleccionada.getAprendizList();
+        } catch (Exception ex) {
+            Logger.getLogger(PermisoVista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
 
     public void setItemsFichas(ArrayList<SelectItem> itemsFichas) {
         this.itemsFichas = itemsFichas;
+    }
+
+    public SelectOneMenu getCmbFicha() {
+        return cmbFicha;
+    }
+
+    public void setCmbFicha(SelectOneMenu cmbFicha) {
+        this.cmbFicha = cmbFicha;
     }
     
     
