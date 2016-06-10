@@ -117,7 +117,7 @@ public class SesionVista {
                     break;
                 case 'I':
                     url = extContext.encodeActionURL(context.getApplication().
-                    getViewHandler().getActionURL(context, "/instructor/indexInstructor.xhtml"));
+                    getViewHandler().getActionURL(context, "/instructor/daniel.xhtml"));
                     Instructor objInstructor = instructorLogica.consultarxDocumento(documento);
                     if(objInstructor==null){
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "El usuario no tiene el rol"));
