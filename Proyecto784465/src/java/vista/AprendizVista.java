@@ -33,7 +33,7 @@ import org.primefaces.component.selectonemenu.SelectOneMenu;
  */
 @Named(value = "aprendizVista")
 @RequestScoped
-public class AprendizVistaActualizar {
+public class AprendizVista {
     private InputText txtDocumento;
     private InputText txtNombre;
     private InputText txtApellidos;
@@ -64,7 +64,7 @@ public class AprendizVistaActualizar {
                 itemsFichas.add(new SelectItem(ListaFichas.get(i).getNumFicha(), ListaFichas.get(i).getNumFicha().toString()));
             }
         } catch (Exception ex) {
-            Logger.getLogger(AprendizVistaActualizar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);
         }
         return itemsFichas;
     }
@@ -189,7 +189,7 @@ public class AprendizVistaActualizar {
             System.out.println("Modifica");
         } catch (Exception ex) {
                   FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", ex.getMessage()));
-            Logger.getLogger(AprendizVistaActualizar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AprendizVista.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -199,7 +199,7 @@ public class AprendizVistaActualizar {
     /**
      * Creates a new instance of AprendizVista
      */
-    public AprendizVistaActualizar() {
+    public AprendizVista() {
 
     }
 
