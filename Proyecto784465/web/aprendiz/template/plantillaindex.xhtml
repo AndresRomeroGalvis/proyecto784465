@@ -18,10 +18,10 @@
             <ui:insert name="top"> 
                 <div class="img">
                     <img src="imagenes/logosena.png"/>
-                    <h1> Sistema control de asistencias </h1>
+                    <h1> Sistema control de asistencias SENA</h1>
                     <div>
                         <h:form>
-                            <p:breadCrumb>
+                            <p:breadCrumb style="background: #fc7323">
                                 <p:menuitem value="Opciones" url="#" />
                                 <p:menuitem value="Cerrar Sesion" action="#{sesionVista.cerrarSesion_action}" />
                                 <p:menuitem value="Ayuda" url="#" />
@@ -41,7 +41,7 @@
             <ui:insert name="content">
 
                 <div id="dock"> 
-                    <p:dock position="top">
+                    <p:dock position="top" >
                         <p:menuitem value="Actualizar Datos" icon="imagenes/user.png" url="actualizarAprendiz.xhtml"/>
                         <p:menuitem value="Modificar Coontraseña" icon="imagenes/edit-blue.png" url="cambiarContraseña.xhtml"/>
                     </p:dock>
