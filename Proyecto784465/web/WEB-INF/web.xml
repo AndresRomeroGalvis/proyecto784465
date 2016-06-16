@@ -30,4 +30,21 @@
         <filter-name>FiltroVigilante</filter-name>
         <url-pattern>/faces/vigilante/*</url-pattern>
     </filter-mapping>
+    
+    <filter>
+        <filter-name>FiltroAprendiz</filter-name>
+        <filter-class>filtros.FiltroAprendiz</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroAprendiz</filter-name>
+        <url-pattern>/faces/aprendiz/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>FiltroIndexAprendiz</filter-name>
+        <filter-class>filtros.FiltroIndexAprendiz</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroIndexAprendiz</filter-name>
+        <url-pattern>/faces/index.xhtml</url-pattern>
+    </filter-mapping>
 </web-app>

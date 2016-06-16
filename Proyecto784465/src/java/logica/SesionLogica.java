@@ -5,8 +5,11 @@
  */
 package logica;
 
+import static com.sun.faces.facelets.util.Path.context;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import modelo.Persona;
 import org.apache.commons.codec.digest.DigestUtils;
 import persistencia.PersonaFacadeLocal;
@@ -30,7 +33,13 @@ public class SesionLogica implements SesionLogicaLocal {
             throw new Exception("La clave es Obligatoria");
         }
         if(objPersona==null){
-            throw new Exception("Usuario No existe");
+            //throw new Exception("Usuario No existe");
+            FacesContext context =FacesContext.getCurrentInstance();
+            ExternalContext extContext = context.getExternalContext();
+            String url = "";
+            url = extContext.encodeActionURL(context.getApplication().
+            getViewHandler().getActionURL(context, "/vista/registrarPersona.xhtml"));
+            
         }
        
         

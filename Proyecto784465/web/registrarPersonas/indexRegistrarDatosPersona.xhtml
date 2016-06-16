@@ -8,8 +8,10 @@
    <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
+                
+              
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <link rel="stylesheet" type="text/css"  href="Styles/Main.css"/>  
+                <link rel="stylesheet" type="text/css"  href="Styles/Main.css"  />  
                 <title> Sistema control de asistencias </title>
             </f:facet>
 
@@ -45,24 +47,13 @@
                             <f:facet name="Crear Aprendicez" ></f:facet>
 
                             <h:outputText value="Cedula "/>
-                            <p:inputText id="txtCedula" binding="#{aprendizVista.txtDocumento}"/> 
+                            <p:inputText id="txtCedula" binding="#{registrarPersona.txtDocumentoNuevo}"/> 
 
-                            <h:outputText value="Nombre "/>
-                            <p:inputText id="txtNombre" binding="#{aprendizVista.txtNombre}"/> 
-
-                            <h:outputText value="Apellidos"/>
-                            <p:inputText id="txtApellidos" binding="#{aprendizVista.txtApellidos}"/> 
-
-                            <h:outputText value="Direccion"/>
-                            <p:inputText id="txtDireccion" binding="#{aprendizVista.txtDireccion}"/> 
-
-                            <h:outputText value="Email"/>
-                            <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
-
-                            <h:outputText value="Fichas "/>
-                            <p:selectOneMenu id="cmbFichas" binding="#{aprendizVista.cmbFichas}">
+                      
+                            <h:outputText value="Tipo deusuario"/>
+                            <p:selectOneMenu id="cmbTipoUusario" binding="#{registrarPersona.cmbLetraTU}">
                                 <f:selectItem itemLabel="Seleccione" itemValue="Seleccione"/>              
-                                <f:selectItems value="#{aprendizVista.itemsFichas}"/>   //items de manera dinamica           
+                                <f:selectItems value="#{registrarPersona.itemsLetraIU}"/>   //items de manera dinamica           
                             </p:selectOneMenu>
                         </p:panelGrid >
 
@@ -70,9 +61,9 @@
 
                     <p:panelGrid columns="2">
                         <f:facet name="Controles"></f:facet>
-                        <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
+                        <p:commandButton id="btnRegistrar" binding="#{registrarPersona.btnregistrarNuevo}" 
                                          value="Registrar" 
-                                         action="#{aprendizVista.action_registrar}"
+                                         action="#{registrarPersona.action_registrar()}"
                                          update=":formularios"
                                          />
 

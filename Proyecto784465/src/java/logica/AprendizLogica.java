@@ -25,6 +25,7 @@ public class AprendizLogica implements AprendizLogicaLocal {
 @EJB
 private PersonaFacadeLocal personaDAO;
     
+@Override
       public Aprendiz consultarxDocumento(Long documentoC) throws Exception {
         if(documentoC==null){
             throw new Exception("El documento es Obligatorio");
