@@ -39,7 +39,10 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    Es Vigilante
+                    <h:form>
+                        Es Vigilante
+                        <p:commandButton value="Cerrar Sesion" action="#{sesionVista.cerrarSesion_action}"/>
+                    </h:form>      
                 </p:layoutUnit>
 
             </p:layout>

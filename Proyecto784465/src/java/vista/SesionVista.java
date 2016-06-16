@@ -156,7 +156,7 @@ public class SesionVista {
             ExternalContext extContext= context.getExternalContext();
             extContext.getSessionMap().remove("usuario");
             extContext.getSessionMap().remove("tipo");
-            String url=extContext.encodeActionURL(context.getApplication().getViewHandler().getActionURL(context,"../index.xhtml"));
+            String url=extContext.encodeActionURL(context.getApplication().getViewHandler().getActionURL(context,"/index.xhtml"));
             extContext.redirect(url);
         } catch (IOException ex) {
             Logger.getLogger(SesionVista.class.getName()).log(Level.SEVERE, null, ex);

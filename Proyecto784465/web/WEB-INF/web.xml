@@ -21,4 +21,13 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+    
+     <filter>
+        <filter-name>FiltroVigilante</filter-name>
+        <filter-class>filtros.FiltroVigilante</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroVigilante</filter-name>
+        <url-pattern>/faces/vigilante/*</url-pattern>
+    </filter-mapping>
 </web-app>
