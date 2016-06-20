@@ -13,46 +13,51 @@
             <ui:define name="content">
 
                 <h:form id="formularios"  >
-
-                    <p:panelGrid columns="4" id="tablero" >
-
-
-                        <h:outputText value="Cedula "/>
-                        <p:inputText id="txtCedula" binding="#{aprendizVista.txtDocumento}"/> 
-
-                        <h:outputText value="Nombre "/>
-                        <p:inputText id="txtNombre" binding="#{aprendizVista.txtNombre}"/> 
-
-                        <h:outputText value="Apellidos"/>
-                        <p:inputText id="txtApellidos" binding="#{aprendizVista.txtApellidos}"/> 
-
-                        <h:outputText value="Direccion"/>
-                        <p:inputText id="txtDireccion" binding="#{aprendizVista.txtDireccion}"/> 
-
-                        <h:outputText value="Email"/>
-                        <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
-
-                        <h:outputText value="Fichas "/>
-                        <p:selectOneMenu id="cmbFichas" binding="#{aprendizVista.cmbFichas}">
-                            <f:selectItem itemLabel="Seleccione" itemValue="Seleccione"/>              
-                            <f:selectItems value="#{aprendizVista.itemsFichas}"/>   //items de manera dinamica           
-                        </p:selectOneMenu>
-                    </p:panelGrid >
+                    <p:panelGrid columns="1" >
+                        <p:fieldset legend="ROL APRENDIZ ACTUALIZAR DATOS  3923010 e242 vanesa duran" style="background:#238276" >  
 
 
 
-                    <p:panelGrid columns="4">
+                            <h:outputText value=" Cedula "/>
+                            <p:inputText id="txtCedula" binding="#{aprendizVista.txtDocumento}"/> 
 
-                        <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
-                                         value="Registrar" 
-                                         action="#{aprendizVista.action_registrar}"
-                                         update=":formularios"
+                            <h:outputText value=" Nombre "/>
+                            <p:inputText id="txtNombre" binding="#{aprendizVista.txtNombre}"/> 
+                        </p:fieldset> 
+                        <p:fieldset style="background:#238276">
+                            <h:outputText value=" Apellidos "/>
+                            <p:inputText id="txtApellidos" binding="#{aprendizVista.txtApellidos}"/> 
 
-                                         />
+                            <h:outputText value=" Direccion "/>
+                            <p:inputText id="txtDireccion" binding="#{aprendizVista.txtDireccion}"/> 
+                        </p:fieldset>
+                        <p:fieldset style="background:#238276">
+                            <h:outputText value=" Email"/>
+                            <p:inputText id="txtEmail" binding="#{aprendizVista.txtEmail}"/>
+
+                            <h:outputText value="  Fichas "/>
+                            <p:selectOneMenu id="cmbFichas" binding="#{aprendizVista.cmbFichas}">
+                                <f:selectItem itemLabel="Seleccione" itemValue="Seleccione"/>              
+                                <f:selectItems value="#{aprendizVista.itemsFichas}"/>   //items de manera dinamica           
+                            </p:selectOneMenu>
+
+
+                        </p:fieldset>
+                    </p:panelGrid>
 
 
 
-                    </p:panelGrid >
+                    <p:commandButton id="btnRegistrar" binding="#{aprendizVista.btnregistrar}" 
+                                     value=" Registrar" 
+                                     action="#{aprendizVista.action_registrar}"
+                                     update=":formularios"
+
+
+                                     />
+
+
+
+
 
 
                 </h:form> 
