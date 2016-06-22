@@ -17,4 +17,5 @@ public interface PersonaLogicaLocal {
     public Persona consultarxDocumento(Long documento) throws Exception;
     public void registrar(Persona persona) throws Exception;
     public void modificar(Persona persona) throws Exception;
+     public void crear(String documentoNuevo,String validardocumentoNuevo) throws Exception;
 }

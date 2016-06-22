@@ -7,6 +7,7 @@ package logica;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import modelo.Persona;
 import persistencia.PersonaFacadeLocal;
 
@@ -63,5 +64,24 @@ public class PersonaLogica implements PersonaLogicaLocal {
        objEmpleado.setEmailPersona(persona.getEmailPersona());
        personaDAO.edit(objEmpleado);
     }
+    }
+
+    @Override
+    public void crear(String documentoNuevo,String validardocumentoNuevo) throws Exception {
+        
+         Persona personaSesion = (Persona) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        if(!documentoNuevo.equals(validardocumentoNuevo)){
+            throw new Exception("El documento no coincide");
+        }
+        Persona objPersona = personaDAO.find(documentoNuevo);
+        if(objPersona==null){
+            
+        objPersona.setContrasenaPersona(documentoNuevo);
+        objPersona.setDocumentoPersona(Long.parseLong(documentoNuevo));
+        personaDAO.create(objPersona);
+        }else{
+            throw new Exception("El documento existe");
+        }
+        
     }
 }

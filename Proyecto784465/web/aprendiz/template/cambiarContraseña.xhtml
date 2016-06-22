@@ -11,36 +11,39 @@
         <ui:composition template="./plantillaindex.xhtml">
 
             <ui:define name="content">
-                
+
                 <h:form id="formularios">
-               
-                <p:panelGrid columns="2">
-                    <f:facet name="Crear Aprendicez" ></f:facet>
 
-                    <h:outputText value="Contraseña actual "/>
-                    <p:inputText id="txtContraseña" binding="#{aprendizVistaModificar.txtContraseña}"/> 
+                    <p:panelGrid columns="1">
+                        <p:fieldset legend=" ROL APRENDIZ CAMBIAR CONTRASEÑA" style="background:#238276" > 
 
-                    <h:outputText value="Contrsaeña nueva "/>
-                    <p:inputText id="txtContrasenaNueva" binding="#{aprendizVistaModificar.txtContraseñaNueva1}"/> 
+                            <h:outputText value=" Contraseña actual "/>
+                            <p:inputText id="txtContraseña" binding="#{aprendizVistaModificar.txtContraseña}"/> 
+                        </p:fieldset> 
+                        <p:fieldset style="background:#238276">
+                            <h:outputText value=" Contrseña nueva "/>
+                            <p:inputText id="txtContrasenaNueva" binding="#{aprendizVistaModificar.txtContraseñaNueva1}"/> 
+                        </p:fieldset>
+                        <p:fieldset style="background:#238276">
+                            <h:outputText value=" Cofirmar contraseña"/>
+                            <p:inputText id="txtValidarContraseñaNueva" binding="#{aprendizVistaModificar.txtValidarContraseñaNueva}"/> 
+                        </p:fieldset>
+                       
 
-                    <h:outputText value="Cofirmar contraseña"/>
-                    <p:inputText id="txtValidarContraseñaNueva" binding="#{aprendizVistaModificar.txtValidarContraseñaNueva}"/> 
+                    </p:panelGrid >
 
+                </h:form> 
+
+                <p:panelGrid columns="4">
+                    <f:facet name="Controles"></f:facet>
+                    <p:commandButton id="btnModificarContraseña" binding="#{aprendizVistaModificar.btnModificar}" 
+                                     value="Registrar"
+                                     action="#{aprendizVistaModificar.action_modificar()}"
+                                     update=":formularios"
+
+                                     />
 
                 </p:panelGrid >
-
-            </h:form> 
-
-            <p:panelGrid columns="4">
-                <f:facet name="Controles"></f:facet>
-                <p:commandButton id="btnModificarContraseña" binding="#{aprendizVistaModificar.btnModificar}" 
-                                 value="Registrar"
-                                 action="#{aprendizVistaModificar.action_modificar()}"
-                                 update=":formularios"
-
-                                 />
-
-            </p:panelGrid >
             </ui:define>
 
         </ui:composition>

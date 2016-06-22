@@ -36,7 +36,16 @@ public class registrarPersona {
      */
     private InputText txtDocumentoNuevo;
     private SelectOneMenu cmbLetraTU;
+    private InputText txtValidarcontraseña;
     private ArrayList<SelectItem> itemsLetraIU;
+
+    public InputText getTxtValidarcontraseña() {
+        return txtValidarcontraseña;
+    }
+
+    public void setTxtValidarcontraseña(InputText txtValidarcontraseña) {
+        this.txtValidarcontraseña = txtValidarcontraseña;
+    }
     List<Tipousuario> ListaTipousuario;
     private CommandButton btnregistrarNuevo;
     @EJB
@@ -96,21 +105,27 @@ public class registrarPersona {
         this.btnregistrarNuevo = btnregistrarNuevo;
     }
 
-    public void action_registrar() throws Exception {//registrar aprendiz 
-        try{
-        Persona nuevapersona = new Persona();
-        nuevapersona.setDocumentoPersona(Long.parseLong(txtDocumentoNuevo.getValue().toString()));
-        personalogica.modificar(nuevapersona);
-        /*Ficha nuevaFicha = new Ficha();
-            nuevaFicha.setNumFicha(Integer.parseInt(cmbFichas.getValue().toString()));
-            nuevoAprendiz.setNumFicha(nuevaFicha);
-            aprendizlogica.modificar(nuevoAprendiz);*/
-        Tipousuario tipousuario=new Tipousuario();
-        tipousuario.setLetraTU(cmbLetraTU.getValue().toString());
-        tipousuarioLogica.modificar(tipousuario);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", " Los datos se registraron con exito"));
-        }catch(Exception ex){
-            
+    public void action_crear() throws Exception {//registrar aprendiz 
+       
+       String documentoNuevo=(txtDocumentoNuevo.getValue().toString());
+       String validardocumentoNuevo=(txtValidarcontraseña.getValue().toString());
+       if(!documentoNuevo.equals(documentoNuevo)){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", " Las cedulas no cinciden"));
+        }else{
+            try {
+              
+                 personalogica.crear(documentoNuevo, validardocumentoNuevo);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", " La edula se registro con exito"));
+            } catch (Exception ex) {
+                Logger.getLogger(AprendizVistaModificar.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+       
+  
+ 
     }
+    
 }
+
+    
+

@@ -14,17 +14,16 @@
                 <h:form id="formularios">
 
                         <p:panelGrid columns="4" id="tablero">
-                            <f:facet name="Crear Aprendicez" ></f:facet>
+                            <f:facet name=" Registrar Persona" ></f:facet>
 
-                            <h:outputText value="Cedula "/>
+                            <h:outputText value=" Cedula "/>
                             <p:inputText id="txtCedula" binding="#{registrarPersona.txtDocumentoNuevo}"/> 
+                            
+                            <h:outputText value=" ValidarCedula "/>
+                            <p:inputText id="txtCedulaValidacion" binding="#{registrarPersona.txtValidarcontraseña}"/> 
 
                       
-                            <h:outputText value="Tipo deusuario"/>
-                            <p:selectOneMenu id="cmbTipoUusario" binding="#{registrarPersona.cmbLetraTU}">
-                                <f:selectItem itemLabel="Seleccione" itemValue="Seleccione"/>              
-                                <f:selectItems value="#{registrarPersona.itemsLetraIU}"/>   //items de manera dinamica           
-                            </p:selectOneMenu>
+                            
                         </p:panelGrid >
 
                     
@@ -33,7 +32,7 @@
                         <f:facet name="Controles"></f:facet>
                         <p:commandButton id="btnRegistrar" binding="#{registrarPersona.btnregistrarNuevo}" 
                                          value="Registrar" 
-                                         action="#{registrarPersona.action_registrar()}"
+                                         action="#{registrarPersona.action_crear()}"
                                          update=":formularios"
                                          />
 

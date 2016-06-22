@@ -11,7 +11,6 @@ import javax.ejb.Stateless;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import modelo.Persona;
-import org.apache.commons.codec.digest.DigestUtils;
 import persistencia.PersonaFacadeLocal;
 
 /**
