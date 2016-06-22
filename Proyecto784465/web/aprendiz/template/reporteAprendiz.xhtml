@@ -10,15 +10,10 @@
         <ui:composition template="./plantillaindex.xhtml">
 
             <ui:define name="content">
-                Aprendiz aprendiz = (Aprendiz) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-                <h:outputText value="Cedula "/>
-                <p:inputText id="txtCedula" binding="#{aprendizVista.txtDocumento}"/> 
-
-
                 <p:commandButton id="btnreporte" binding="#{reporteVista.botonReporte}" 
                                  value="Registrar"
-                                 action="#{reporteVista.botonReporte}"
-                                 update=":formularios"
+                                 action="#{reporteVista.generarReporteAprendiz()}"
+                                 ajax="false"
 
                                  />
             </ui:define>

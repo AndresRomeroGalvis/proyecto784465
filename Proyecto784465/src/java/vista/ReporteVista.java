@@ -27,6 +27,7 @@ import javax.naming.NamingException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import modelo.Aprendiz;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -72,17 +73,17 @@ public class ReporteVista {
 
     public void generarReporteAprendiz() {
         try {
+            Aprendiz aprendiz = (Aprendiz) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
             Connection conn = null;
             Context initContext = new InitialContext();
             DataSource ds = (DataSource) initContext.lookup("jdbc/proyecto784465");
             conn = ds.getConnection();
-            Integer documentoPersona = Integer.parseInt(txtDocumento.getValue().toString());
             Map<String, Object> parametros = new HashMap<>();
-            parametros.put("documento", documentoPersona);
+            parametros.put("documentoA", aprendiz.getDocumentoA());
             File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("ReportesAprendiz/ReporteAprendizInasistencias.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasper.getPath(), parametros, conn);
             HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-            response.addHeader("Content-disposition", "attachment; filename=ReporteAprendiz" + documentoPersona + ".pdf");
+            response.addHeader("Content-disposition", "attachment; filename=ReporteAprendiz" + aprendiz.getDocumentoA() + ".pdf");
             ServletOutputStream stream = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, stream);
             FacesContext.getCurrentInstance().responseComplete();
